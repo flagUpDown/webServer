@@ -65,6 +65,8 @@ void process_conn_server(int connectfd){
             exit(EXIT_FAILURE);
         }
         loopWrite(connectfd,ptr,filesize);
+        munmap(ptr,filesize);
+        close(fd);
     }
 }
 
